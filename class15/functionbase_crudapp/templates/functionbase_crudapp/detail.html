@@ -1,0 +1,13 @@
+{% extends 'functionbase_crudapp/base.html' %}
+
+{% block dashboardcontent %}
+
+<div class="container">
+    <div class="card">
+        <img src="{{ banner.image.url }}" alt="">
+        <div class="card-body">
+            <h4>{{ banner.title }}</h4>
+        </div>
+    </div>
+</div>
+{% endblock dashboardcontent %}

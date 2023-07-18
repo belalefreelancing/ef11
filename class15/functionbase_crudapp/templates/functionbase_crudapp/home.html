@@ -1,0 +1,35 @@
+{% extends 'functionbase_crudapp/base.html' %}
+
+{% block dashboardcontent %}
+
+<a class="btn btn-primary" href="{% url 'banner-add' %}">Add New</a>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Image</th>
+        <th scope="col">HTTP Link</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+        {% for c in banner %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{ c.title }}</td>
+            <td><img src="{{ c.image.url }}" alt="" style="height: 30px;"></td>
+            <td>{{ c.http_link }}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'detail-view' c.pk %}">view</a>
+                <a class="btn btn-warning" href="{% url 'banner-edit' c.pk %}">edit</a>
+                <a class="btn btn-danger" href="{% url 'delete' c.pk %}">delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+            
+    </tbody>
+  </table>
+{% endblock dashboardcontent %}

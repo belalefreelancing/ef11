@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      {% for i in banner %}
+      
+      {% if forloop.counter == 1 %}
+      <div class="carousel-item active">
+      {% else %}
+      <div class="carousel-item">
+      {% endif %}
+        <img src="{{ i.image.url }}" class="d-block w-100" alt="...">
+      </div>
+
+
+      {% endfor %}
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <h3>All Products </h3>
+<div class="row">
+  
+  {% for p in product %}
+  <div class="col-6 col-md-4 col-lg-3">
+    <div class="card" >
+        <img src="{{ p.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+          <p class="card-text">{{ p.price }} BDT</p>
+          <p>{{ p.category.name }}</p>
+        </div>
+      </div>
+</div>
+  {% endfor %}
+
+<h2>Electronics</h2>
+  <div class="row">
+    {% for p in elc_product %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card" >
+          <img src="{{ p.image.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ p.name }}</h5>
+            <p class="card-text">{{ p.price }} BDT</p>
+            <p>{{ p.category.name }}</p>
+          </div>
+        </div>
+  </div>
+    {% endfor %}
+    
+<h1>First Product</h1>
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card" >
+          <img src="{{ f_product.image.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ f_product.name }}</h5>
+            <p class="card-text">{{ f_product.price }} BDT</p>
+            <p>{{ f_product.category.name }}</p>
+          </div>
+        </div>
+  </div>
+
+  <h1>Last  Product</h1>
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card" >
+          <img src="{{ l_product.image.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ l_product.name }}</h5>
+            <p class="card-text">{{ l_product.price }} BDT</p>
+            <p>{{ l_product.category.name }}</p>
+          </div>
+        </div>
+  </div>
+
+  <h1>Get  Product</h1>
+  <div class="col-6 col-md-4 col-lg-3">
+    <div class="card" >
+        <img src="{{ get_product.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ get_product.name }}</h5>
+          <p class="card-text">{{ get_product.price }} BDT</p>
+          <p>{{ get_product.category.name }}</p>
+        </div>
+      </div>
+</div>
+</div>
+
+{% endblock content %}
+
+
+
